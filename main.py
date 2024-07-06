@@ -1,13 +1,10 @@
-from flask import Flask, jsonify, request
-from functions_framework import create_function
-
+import functions_framework
+from flask import jsonify
 from module import botReply
 
-app = Flask(__name__)
-
-@app.route('/chat', methods=['POST'])
-def chat():
-    data = request.get_json()
+@functions_framework.http
+def chat(request):
+    data = request.get_json(silent=True)
     message = data.get('message', '')
     message = message.replace('iteung', '').replace('teung', '')
     
@@ -17,9 +14,3 @@ def chat():
     message, status = botReply(message)
     return jsonify({'status': status, 'message': message})
 
-# Create a function that wraps the application
-function = create_function(app)
-
-# This part is required for local development
-if __name__ == '__main__':
-    function.run()

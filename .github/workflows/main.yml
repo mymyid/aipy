@@ -29,7 +29,7 @@ jobs:
           gcloud functions deploy aipy \
             --region=asia-southeast2 \
             --allow-unauthenticated \
-            --entry-point=app \
+            --entry-point=chat \
             --gen2 \
             --runtime=python39 \
             --trigger-http \
