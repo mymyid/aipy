@@ -1,8 +1,6 @@
-Flask==2.0.2
-werkzeug==2.0.2
-functions-framework==3.*
-numpy~=1.19.2
-pandas==1.3.3
-keras==2.6.0
-tensorflow==2.6.0
-Sastrawi==1.0.1
+Sastrawi
+tensorflow==2.15.0
+Flask
+numpy
+pandas
+keras_preprocessing

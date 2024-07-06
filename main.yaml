@@ -1,2 +1,2 @@
-runtime: python39
-entry_point: app
+runtime: python311
+entry_point: chat
