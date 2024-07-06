@@ -1,6 +1,5 @@
 Sastrawi
 tensorflow==2.15.0
-Flask
 numpy
 pandas
 keras_preprocessing

@@ -1,5 +1,5 @@
 import functions_framework
-from flask import jsonify
+from json import dumps
 from module import botReply
 
 @functions_framework.http
@@ -9,8 +9,8 @@ def chat(request):
     message = message.replace('iteung', '').replace('teung', '')
     
     if not message:
-        return jsonify({'status': "true", 'message': ""})
+        return dumps({'status': "true", 'message': ""})
 
     message, status = botReply(message)
-    return jsonify({'status': status, 'message': message})
+    return dumps({'status': status, 'message': message})
 
