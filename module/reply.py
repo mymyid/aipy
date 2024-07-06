@@ -3,7 +3,6 @@ import os
 import pickle
 import random
 import re
-import nltk
 
 import numpy as np
 import pandas as pd
