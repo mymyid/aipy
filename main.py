@@ -1,17 +1,25 @@
-from blacksheep import Application, FromJSON
+from flask import Flask, jsonify, request
+from functions_framework import create_function
+
 from module import botReply
 
-app = Application()
+app = Flask(__name__)
 
 @app.route('/chat', methods=['POST'])
-async def chat(data: FromJSON[dict]):
+def chat():
+    data = request.get_json()
     message = data.get('message', '')
     message = message.replace('iteung', '').replace('teung', '')
+    
     if not message:
-        return {'status': "true", 'message': ""}
+        return jsonify({'status': "true", 'message': ""})
 
     message, status = botReply(message)
-    return {'status': status, 'message': message}
+    return jsonify({'status': status, 'message': message})
 
-if __name__ == "__main__":
-    app.start()
+# Create a function that wraps the application
+function = create_function(app)
+
+# This part is required for local development
+if __name__ == '__main__':
+    function.run()
