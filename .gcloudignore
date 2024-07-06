@@ -1,5 +1,5 @@
-.github/*
+.github/
 README.md
 LICENSE
-.git/*
+.git/
 .gitignore
