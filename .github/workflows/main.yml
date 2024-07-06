@@ -33,6 +33,7 @@ jobs:
             --gen2 \
             --runtime=python311 \
             --trigger-http \
+            --memory 512MB \
             --timeout=540s \
             --set-env-vars=MONGOSTRING='${{ secrets.MONGOSTRING }}'
       - name: 'Cek eksistensi fungsi'
